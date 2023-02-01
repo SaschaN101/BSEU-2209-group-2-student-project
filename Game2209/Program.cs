@@ -16,14 +16,6 @@ namespace Game2209
 
     }
 
-    class Person
-    {
-        public void init(string name)
-        {
-            Console.WriteLine(Constants.player(name));
-        }
-    }
-
     class Constants
     {
         public static string start = "Hello. Are you ready?";
@@ -45,11 +37,11 @@ namespace Game2209
         {
             Console.WriteLine(Constants.start);
 
-            Person player = new Person();
-            Person player2 = new Person();
+            Person player = new Person("Liu Kang");
+            Person player2 = new Person("Sub-Zero");
 
-            player.init("1");
-            player2.init("2");
+            Console.WriteLine(player.ToString() + " is created!");
+            Console.WriteLine(player2.ToString() + " is created!");
         }
     }
 }

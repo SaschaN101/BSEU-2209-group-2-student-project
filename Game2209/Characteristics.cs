@@ -1,6 +1,4 @@
-﻿using System;
-
-public class Characteristics
+﻿public class Characteristics
 {
     private Helmet helmet;
     private Chest chest;
@@ -54,12 +52,13 @@ public class Characteristics
     {
         return base.ToString() + ": \nHelmet: " + helmet.getDefence()
             + "\nChest defence: " + chest.getDefence()
-            + "\nWrist defence: " + wrist.getDefence() 
+            + "\nWrist defence: " + wrist.getDefence()
             + "\nLegs defence: " + legs.getDefence()
             + "\nWeapon damage: " + weapon.getDamage();
     }
 
-    public class Helmet {
+    public class Helmet
+    {
 
         private int level;
         private int defence;
@@ -93,13 +92,14 @@ public class Characteristics
         }
     }
 
-    public class Chest {
+    public class Chest
+    {
 
         private int level;
         private int defence;
         public int getLevel()
         {
-            return this.level;
+            return level;
         }
         public void setLevel(int level)
         {
@@ -126,7 +126,8 @@ public class Characteristics
         }
     }
 
-    public class Wrist {
+    public class Wrist
+    {
 
         private int level;
         private int defence;
@@ -158,13 +159,14 @@ public class Characteristics
         }
     }
 
-    public class Legs {
+    public class Legs
+    {
 
         private int level;
         private int defence;
         public int getLevel()
         {
-            return this.level;
+            return level;
         }
         public void setLevel(int level)
         {

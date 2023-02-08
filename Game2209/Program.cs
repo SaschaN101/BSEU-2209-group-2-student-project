@@ -48,13 +48,15 @@ namespace Game2209
                 
                 double DamageToP1, DamageToP2, DefenceRatioP1 = 1, DefenceRatioP2 = 1;
                     
-                Console.WriteLine("P1 chose attack target / P1 defence target");
+                Console.WriteLine(player1.ToString() + " choose attack target " + player2.ToString() + " defence target");
                     AtkTargetP1 = Console.ReadLine(); AtkTargetP1 = AtkTargetP1.ToLower();
                     DefTargetP1 = Console.ReadLine(); DefTargetP1 = DefTargetP1.ToLower();
-                    
-                Console.WriteLine("P2 chose attack target / P2 defence target");
+                Console.WriteLine();
+                
+                Console.WriteLine(player2.ToString() + " choose attack target " + player1.ToString() + " defence target");
                     AtkTargetP2 = Console.ReadLine(); AtkTargetP2 = AtkTargetP2.ToLower();
                     DefTargetP2 = Console.ReadLine(); DefTargetP2 = DefTargetP2.ToLower();
+                Console.WriteLine();
 
                 int DamageP1 = player1.getDamageLevel(), 
                     DamageP2 = player2.getDamageLevel();
@@ -80,8 +82,8 @@ namespace Game2209
                 Console.WriteLine("P1 dealt " + DamageToP2 + " damage to P2. \n" +
                     "P2 has " + player2.HealthPoints + " health left.");
                 Console.WriteLine("P2 dealt " + DamageToP1 + " damage to P1. \n" +
-                    "P1 has " + player1.HealthPoints + " health left.");
-            } while (player1.HealthPoints >= 0 || player2.HealthPoints >= 0);
+                    "P1 has " + player1.HealthPoints + " health left.\n");
+            } while (player1.HealthPoints > 0 || player2.HealthPoints > 0);
         }
     }
 }

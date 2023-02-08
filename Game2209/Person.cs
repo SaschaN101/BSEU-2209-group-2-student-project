@@ -28,13 +28,13 @@
     {
         switch (defenceElement)
         {
-            case "helmet":
-                return characteristics.getHelmet().getDefence();
-            case "chest":
-                return characteristics.getChest().getDefence();
-            case "wrist":
-                return characteristics.getWrist().getDefence();
-            case "legs":
+            case "h": //Haed
+                return characteristics.getHead().getDefence();
+            case "t": //Torso
+                return characteristics.getTorso().getDefence();
+            case "a": //Arms
+                return characteristics.getArms().getDefence();
+            case "l": //Legs
                 return characteristics.getLegs().getDefence();
             default:
                 return 0;

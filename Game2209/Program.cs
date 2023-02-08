@@ -77,10 +77,10 @@ namespace Game2209
                 player1.reduceHealthPoints((int)DamageToP1);
                 player2.reduceHealthPoints((int)DamageToP2);
 
-                Console.WriteLine("P1 dealt " + DamageToP2 + "damage to P2. \n" +
-                    "P2 has " + player2.HealthPoints + "health left.");
-                Console.WriteLine("P2 dealt " + DamageToP1 + "damage to P1. \n" +
-                    "P1 has " + player1.HealthPoints + "health left.");
+                Console.WriteLine("P1 dealt " + DamageToP2 + " damage to P2. \n" +
+                    "P2 has " + player2.HealthPoints + " health left.");
+                Console.WriteLine("P2 dealt " + DamageToP1 + " damage to P1. \n" +
+                    "P1 has " + player1.HealthPoints + " health left.");
             } while (player1.HealthPoints >= 0 || player2.HealthPoints >= 0);
         }
     }

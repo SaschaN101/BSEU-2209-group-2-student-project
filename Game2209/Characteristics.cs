@@ -1,41 +1,41 @@
 ﻿public class Characteristics
 {
-    private Helmet helmet;
-    private Chest chest;
-    private Wrist wrist;
+    private Head head;
+    private Torso torso;
+    private Arms arms;
     private Legs legs;
     private Weapon weapon;
 
     public Characteristics()
     {
-        helmet = new Helmet();
-        chest = new Chest();
-        wrist = new Wrist();
+        head = new Head();
+        torso = new Torso();
+        arms = new Arms();
         legs = new Legs();
         weapon = new Weapon();
     }
 
     /*public void defaultCharacteristics(){
-        helmet.setLevel(1);
-        chest.setLevel(1);
-        wrist.setLevel(1);
+        head.setLevel(1);
+        torso.setLevel(1);
+        arms.setLevel(1);
         legs.setLevel(1);
         weapon.setLevel(1);
     }*/
 
-    public Helmet getHelmet()
+    public Head getHead()
     {
-        return helmet;
+        return head;
     }
 
-    public Chest getChest()
+    public Torso getTorso()
     {
-        return chest;
+        return torso;
     }
 
-    public Wrist getWrist()
+    public Arms getArms()
     {
-        return wrist;
+        return arms;
     }
 
     public Legs getLegs()
@@ -50,14 +50,14 @@
 
     public override string ToString()
     {
-        return base.ToString() + ": \nHelmet: " + helmet.getDefence()
-            + "\nChest defence: " + chest.getDefence()
-            + "\nWrist defence: " + wrist.getDefence()
+        return base.ToString() + ": \nhead: " + head.getDefence()
+            + "\nTorso defence: " + torso.getDefence()
+            + "\nArms defence: " + arms.getDefence()
             + "\nLegs defence: " + legs.getDefence()
             + "\nWeapon damage: " + weapon.getDamage();
     }
 
-    public class Helmet
+    public class Head
     {
 
         private int level;
@@ -86,13 +86,13 @@
                 defence = 20;
         }
 
-        public Helmet()
+        public Head()
         {
             setLevel(1);
         }
     }
 
-    public class Chest
+    public class Torso
     {
 
         private int level;
@@ -120,13 +120,13 @@
                 defence = 20;
         }
 
-        public Chest()
+        public Torso()
         {
             setLevel(1);
         }
     }
 
-    public class Wrist
+    public class Arms
     {
 
         private int level;
@@ -153,7 +153,7 @@
             if (level == 3)
                 defence = 15;
         }
-        public Wrist()
+        public Arms()
         {
             setLevel(1);
         }

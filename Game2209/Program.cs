@@ -37,10 +37,10 @@ namespace Game2209
         {
             Console.WriteLine(Constants.start);
 
-            Person player = new Person("Liu Kang");
+            Person player1 = new Person("Liu Kang");
             Person player2 = new Person("Sub-Zero");
 
-            Console.WriteLine(player.ToString() + " is created!");
+            Console.WriteLine(player1.ToString() + " is created!");
             Console.WriteLine(player2.ToString() + " is created!");
         }
     }

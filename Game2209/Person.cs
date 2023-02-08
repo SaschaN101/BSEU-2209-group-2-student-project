@@ -2,6 +2,11 @@
 {
     private string name;
     private int healthPoints = 100;
+    public int HealthPoints
+    {
+        get { return healthPoints; }
+        set { healthPoints = value; }
+    }
     private Characteristics characteristics = new Characteristics();
 
     public Person(string name)

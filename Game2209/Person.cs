@@ -1,7 +1,10 @@
-﻿public class Person
+﻿using System;
+
+public class Person
 {
     private string name;
     private int healthPoints = 100;
+
     public int HealthPoints
     {
         get { return healthPoints; }
@@ -28,7 +31,7 @@
     {
         switch (defenceElement)
         {
-            case "h": //Haed
+            case "h": //Head
                 return characteristics.getHead().getDefence();
             case "t": //Torso
                 return characteristics.getTorso().getDefence();
@@ -40,6 +43,22 @@
                 return 0;
         }
     }
+    /* public int setDefenceLevelFor(string defenceElement, int level)
+    {
+        switch (defenceElement)
+        {
+            case "h": //Head
+                return characteristics.getHead().setLevel(level);
+            case "t": //Torso
+                return characteristics.getTorso().setLevel(level);
+            case "a": //Arms
+                return characteristics.getArms().setLevel(level);
+            case "l": //Legs
+                return characteristics.getLegs().setLevel(level);
+            default:
+                return 0;
+        }
+    } */
 
     public override string ToString()
     {

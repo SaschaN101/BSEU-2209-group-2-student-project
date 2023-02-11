@@ -41,7 +41,13 @@ namespace Game2209
 
             Console.WriteLine(player1.ToString() + " is created!");
             Console.WriteLine(player2.ToString() + " is created!");
-            
+
+            Console.WriteLine(player1.ToString() + " please choose ur equipment");
+            Console.WriteLine("First off choose your helmet");
+            Console.WriteLine("Now its time for chestplate");
+            Console.WriteLine("Greave are important too");
+            Console.WriteLine("Dont forget vambraces!!!");
+
             do
             {
                 string AtkTargetP1, AtkTargetP2, DefTargetP1, DefTargetP2;
@@ -74,8 +80,10 @@ namespace Game2209
                 }
 
                 DamageToP1 = Math.Ceiling((DamageP2 - DefenceP1) * DefenceRatioP1);
+                if (DamageToP1 <= 0) DamageToP1 = 0;
                 DamageToP2 = Math.Ceiling((DamageP1 - DefenceP2) * DefenceRatioP2);
-                
+                if (DamageToP2 <= 0) DamageToP2 = 0;
+
                 player1.reduceHealthPoints((int)DamageToP1);
                 player2.reduceHealthPoints((int)DamageToP2);
 
@@ -83,7 +91,7 @@ namespace Game2209
                     "P2 has " + player2.HealthPoints + " health left.");
                 Console.WriteLine("P2 dealt " + DamageToP1 + " damage to P1. \n" +
                     "P1 has " + player1.HealthPoints + " health left.\n");
-            } while (player1.HealthPoints > 0 || player2.HealthPoints > 0);
+            } while (player1.HealthPoints > 0 || player2.HealthPoints > 0);    
         }
     }
 }

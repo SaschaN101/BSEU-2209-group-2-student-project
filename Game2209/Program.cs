@@ -16,21 +16,7 @@ namespace Game2209
 
     }
 
-    class Constants
-    {
-        public static string start = "Hello. Are you ready?";
-        public static string start2 = "Accessible arg y is yes n if no";
-        public static string notValid = "";
-
-
-        public static string player(string name)
-        {
-            return "Player "+name+" is ready";
-        }
-
-    }
-
-    class Program    
+       class Program    
     {
         static void Main(string[] args)
         {

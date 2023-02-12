@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -43,10 +44,193 @@ namespace Game2209
             Console.WriteLine(player2.ToString() + " is created!");
 
             Console.WriteLine(player1.ToString() + " please choose ur equipment");
-            Console.WriteLine("First off choose your helmet");
-            Console.WriteLine("Now its time for chestplate");
-            Console.WriteLine("Greave are important too");
-            Console.WriteLine("Dont forget vambraces!!!");
+
+            ConsoleKeyInfo KeyEquip, KeyLvl;
+            Console.WriteLine(player1.ToString() + 
+                " now you need to choose equipment before fight. \n" +
+                "For choosing equipment press keys:\nh (head)\nt (torso)\na (arms)\nl (legs)\nw (weapon)" +
+                "\nPress q to exit");
+            do
+            {
+                KeyEquip = Console.ReadKey();
+                switch (KeyEquip.KeyChar)
+                {
+                    case 'h': //Head
+                        {
+                            Console.WriteLine("\nYou have choose HEAD, now choose level of equipment\n"
+                                + "Press 1 (defence = 10), 2 (defence = 15) or 3 (defence = 20)");
+                            KeyLvl = Console.ReadKey();
+                            switch (KeyLvl.KeyChar)
+                            {
+                                case '1': player1.setDefenceLevelFor("h", 1); break;
+                                case '2': player1.setDefenceLevelFor("h", 2); break;
+                                case '3': player1.setDefenceLevelFor("h", 3); break;
+                                default: break;
+                            }
+                            Console.WriteLine("\nNow " + player1.ToString() + " HEAD defence = " 
+                                + player1.getDefenceLevelFor("h"));
+                        }
+                              break;
+                    case 't': //Torso
+                        {
+                            Console.WriteLine("\nYou have choose TORSO, now choose level of equipment\n"
+                                + "Press 1 (defence = 10), 2 (defence = 15) or 3 (defence = 20)");
+                            KeyLvl = Console.ReadKey();
+                            switch (KeyLvl.KeyChar)
+                            {
+                                case '1': player1.setDefenceLevelFor("t", 1); break;
+                                case '2': player1.setDefenceLevelFor("t", 2); break;
+                                case '3': player1.setDefenceLevelFor("t", 3); break;
+                                default: break;
+                            }
+                            Console.WriteLine("\nNow " + player1.ToString() + " TORSO defence = "
+                                + player1.getDefenceLevelFor("t"));
+                        }
+                        break;
+                    case 'a': //Arms
+                        {
+                            Console.WriteLine("\nYou have choose ARMS, now choose level of equipment\n"
+                                + "Press 1 (defence = 5), 2 (defence = 10) or 3 (defence = 15)");
+                            KeyLvl = Console.ReadKey();
+                            switch (KeyLvl.KeyChar)
+                            {
+                                case '1': player1.setDefenceLevelFor("a", 1); break;
+                                case '2': player1.setDefenceLevelFor("a", 2); break;
+                                case '3': player1.setDefenceLevelFor("a", 3); break;
+                                default: break;
+                            }
+                            Console.WriteLine("\nNow " + player1.ToString() + " ARMS defence = "
+                                + player1.getDefenceLevelFor("a"));
+                        }
+                        break;
+                    case 'l': //Legs
+                        {
+                            Console.WriteLine("\nYou have choose LEGS, now choose level of equipment\n"
+                                + "Press 1 (defence = 5), 2 (defence = 10) or 3 (defence = 15)");
+                            KeyLvl = Console.ReadKey();
+                            switch (KeyLvl.KeyChar)
+                            {
+                                case '1': player1.setDefenceLevelFor("l", 1); break;
+                                case '2': player1.setDefenceLevelFor("l", 2); break;
+                                case '3': player1.setDefenceLevelFor("l", 3); break;
+                                default: break;
+                            }
+                            Console.WriteLine("\nNow " + player1.ToString() + " LEGS defence = "
+                                + player1.getDefenceLevelFor("l"));
+                        }
+                        break;
+                    case 'w': //Weapon
+                        {
+                            Console.WriteLine("You have choose WEAPON, now choose level of equipment\n"
+                                + "Press 1 (defence = 15), 2 (defence = 20) or 3 (defence = 25)");
+                            KeyLvl = Console.ReadKey();
+                            switch (KeyLvl.KeyChar)
+                            {
+                                case '1': player1.setDefenceLevelFor("w", 1); break;
+                                case '2': player1.setDefenceLevelFor("w", 2); break;
+                                case '3': player1.setDefenceLevelFor("w", 3); break;
+                                default: break;
+                            }
+                            Console.WriteLine("\nNow " + player1.ToString() + " WEAPON damage = "
+                                + player1.getDamageLevel());
+                        }
+                        break;
+                    default: break;
+                }
+            } while (KeyEquip.KeyChar != 'q');
+
+            Console.WriteLine("\n" + player2.ToString() +
+                " now you need to choose equipment before fight. \n" +
+                "For choosing equipment press keys:\nh (head)\nt (torso)\na (arms)\nl (legs)\nw (weapon)" +
+                "\nPress q to exit");
+            do
+            {
+                KeyEquip = Console.ReadKey();
+                switch (KeyEquip.KeyChar)
+                {
+                    case 'h': //Head
+                        {
+                            Console.WriteLine("\nYou have choose HEAD, now choose level of equipment\n"
+                                + "Press 1 (defence = 10), 2 (defence = 15) or 3 (defence = 20)");
+                            KeyLvl = Console.ReadKey();
+                            switch (KeyLvl.KeyChar)
+                            {
+                                case '1': player2.setDefenceLevelFor("h", 1); break;
+                                case '2': player2.setDefenceLevelFor("h", 2); break;
+                                case '3': player2.setDefenceLevelFor("h", 3); break;
+                                default: break;
+                            }
+                            Console.WriteLine("\nNow " + player2.ToString() + " HEAD defence = "
+                                + player2.getDefenceLevelFor("h"));
+                        }
+                        break;
+                    case 't': //Torso
+                        {
+                            Console.WriteLine("\nYou have choose TORSO, now choose level of equipment\n"
+                                + "Press 1 (defence = 10), 2 (defence = 15) or 3 (defence = 20)");
+                            KeyLvl = Console.ReadKey();
+                            switch (KeyLvl.KeyChar)
+                            {
+                                case '1': player2.setDefenceLevelFor("t", 1); break;
+                                case '2': player2.setDefenceLevelFor("t", 2); break;
+                                case '3': player2.setDefenceLevelFor("t", 3); break;
+                                default: break;
+                            }
+                            Console.WriteLine("\nNow " + player2.ToString() + " TORSO defence = "
+                                + player2.getDefenceLevelFor("t"));
+                        }
+                        break;
+                    case 'a': //Arms
+                        {
+                            Console.WriteLine("\nYou have choose ARMS, now choose level of equipment\n"
+                                + "Press 1 (defence = 5), 2 (defence = 10) or 3 (defence = 15)");
+                            KeyLvl = Console.ReadKey();
+                            switch (KeyLvl.KeyChar)
+                            {
+                                case '1': player2.setDefenceLevelFor("a", 1); break;
+                                case '2': player2.setDefenceLevelFor("a", 2); break;
+                                case '3': player2.setDefenceLevelFor("a", 3); break;
+                                default: break;
+                            }
+                            Console.WriteLine("\nNow " + player2.ToString() + " ARMS defence = "
+                                + player2.getDefenceLevelFor("a"));
+                        }
+                        break;
+                    case 'l': //Legs
+                        {
+                            Console.WriteLine("\nYou have choose LEGS, now choose level of equipment\n"
+                                + "Press 1 (defence = 5), 2 (defence = 10) or 3 (defence = 15)");
+                            KeyLvl = Console.ReadKey();
+                            switch (KeyLvl.KeyChar)
+                            {
+                                case '1': player2.setDefenceLevelFor("l", 1); break;
+                                case '2': player2.setDefenceLevelFor("l", 2); break;
+                                case '3': player2.setDefenceLevelFor("l", 3); break;
+                                default: break;
+                            }
+                            Console.WriteLine("\nNow " + player2.ToString() + " LEGS defence = "
+                                + player2.getDefenceLevelFor("l"));
+                        }
+                        break;
+                    case 'w': //Weapon
+                        {
+                            Console.WriteLine("You have choose WEAPON, now choose level of equipment\n"
+                                + "Press 1 (defence = 15), 2 (defence = 20) or 3 (defence = 25)");
+                            KeyLvl = Console.ReadKey();
+                            switch (KeyLvl.KeyChar)
+                            {
+                                case '1': player2.setDefenceLevelFor("w", 1); break;
+                                case '2': player2.setDefenceLevelFor("w", 2); break;
+                                case '3': player2.setDefenceLevelFor("w", 3); break;
+                                default: break;
+                            }
+                            Console.WriteLine("\nNow " + player2.ToString() + " WEAPON damage = "
+                                + player2.getDamageLevel());
+                        }
+                        break;
+                    default: break;
+                }
+            } while (KeyEquip.KeyChar != 'q');
 
             do
             {

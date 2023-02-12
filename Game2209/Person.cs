@@ -43,22 +43,23 @@ public class Person
                 return 0;
         }
     }
-    /* public int setDefenceLevelFor(string defenceElement, int level)
+    public void setDefenceLevelFor(string defenceElement, int level)
     {
         switch (defenceElement)
         {
             case "h": //Head
-                return characteristics.getHead().setLevel(level);
+                characteristics.getHead().setLevel(level); break;
             case "t": //Torso
-                return characteristics.getTorso().setLevel(level);
+                characteristics.getTorso().setLevel(level); break;
             case "a": //Arms
-                return characteristics.getArms().setLevel(level);
+                characteristics.getArms().setLevel(level); break;
             case "l": //Legs
-                return characteristics.getLegs().setLevel(level);
-            default:
-                return 0;
+                characteristics.getLegs().setLevel(level); break;
+            case "w": //Weapon
+                characteristics.getWeapon().setLevel(level); break;
+            default: break;
         }
-    } */
+    } 
 
     public override string ToString()
     {

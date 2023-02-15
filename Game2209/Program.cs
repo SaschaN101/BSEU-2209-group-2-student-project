@@ -33,7 +33,7 @@ namespace Game2209
 
             bool selectLevel(string equipment, string str2)
             {
-                Console.WriteLine("\nYou have choose "+ equipment + ", now choose level of equipment\n"
+                Console.WriteLine("\nYou have choose " + equipment + ", now choose level of equipment\n"
                                     + "Press 1 (defence = 10), 2 (defence = 15) or 3 (defence = 20)");
                 KeyLvl = Console.ReadKey();
                 if (Validation.validationLevel(KeyLvl.KeyChar))
@@ -46,7 +46,7 @@ namespace Game2209
                         case '3': player1.setDefenceLevelFor(str2, 3); break;
                         default: break;
                     }
-                    Console.WriteLine("\nNow " + player1.ToString() + " \"+ equipment + \" defence = "
+                    Console.WriteLine("\nNow " + player1.ToString() + "  " + equipment + " defence = "
                         + player1.getDefenceLevelFor(str2));
                     return false;
                 }else { Console.WriteLine("\nAn invalid parameter was entered. Try again.");

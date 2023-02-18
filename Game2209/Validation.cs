@@ -5,7 +5,7 @@ public static class Validation
     private static string equipment = "htalw";
     private static string level = "123";
 
-    public static bool validationEquipment(char enterSting)
+    public static bool ValidationEquipment(char enterSting)
     {
         int indexStr = equipment.IndexOf(enterSting);
         if (indexStr >= 0)
@@ -15,7 +15,7 @@ public static class Validation
         else { return false; }         
     }
     
-    public static bool validationLevel(char enterSting)
+    public static bool ValidationLevel(char enterSting)
     {
         int indexStr = level.IndexOf(enterSting);
         if (indexStr >= 0)

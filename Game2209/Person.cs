@@ -10,6 +10,7 @@ public class Person
         get { return healthPoints; }
         set { healthPoints = value; }
     }
+
     private Characteristics characteristics = new Characteristics();
 
     public Person(string name)

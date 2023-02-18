@@ -36,7 +36,7 @@ namespace Game2209
                 Console.WriteLine("\nYou have choose " + equipment + ", now choose level of equipment\n"
                                     + "Press 1 (defence = 10), 2 (defence = 15) or 3 (defence = 20)");
                 KeyLvl = Console.ReadKey();
-                if (Validation.validationLevel(KeyLvl.KeyChar))
+                if (Validation.ValidationLevel(KeyLvl.KeyChar))
                 {
                     switch (KeyLvl.KeyChar)
                     {
@@ -57,7 +57,7 @@ namespace Game2209
             do
             {
                 KeyEquip = Console.ReadKey();
-                if (Validation.validationEquipment(KeyEquip.KeyChar))
+                if (Validation.ValidationEquipment(KeyEquip.KeyChar))
                 {
                     bool indicator = false;
 
@@ -212,18 +212,20 @@ namespace Game2209
                 }
             } while (KeyEquip.KeyChar != 'q');
 
+            Constants.Countdown(); // обратный отсчёт
+
             do
             {
                 string AtkTargetP1, AtkTargetP2, DefTargetP1, DefTargetP2;
                 
                 double DamageToP1, DamageToP2, DefenceRatioP1 = 1, DefenceRatioP2 = 1;
                     
-                Console.WriteLine(player1.ToString() + " choose attack target " + player2.ToString() + " defence target");
+                Console.WriteLine(player1.ToString() + " choose your attack target and defence target");
                     AtkTargetP1 = Console.ReadLine(); AtkTargetP1 = AtkTargetP1.ToLower();
                     DefTargetP1 = Console.ReadLine(); DefTargetP1 = DefTargetP1.ToLower();
                 Console.WriteLine();
                 
-                Console.WriteLine(player2.ToString() + " choose attack target " + player1.ToString() + " defence target");
+                Console.WriteLine(player2.ToString() + " choose your attack target and defence target");
                     AtkTargetP2 = Console.ReadLine(); AtkTargetP2 = AtkTargetP2.ToLower();
                     DefTargetP2 = Console.ReadLine(); DefTargetP2 = DefTargetP2.ToLower();
                 Console.WriteLine();
@@ -244,9 +246,9 @@ namespace Game2209
                 }
 
                 DamageToP1 = Math.Ceiling((DamageP2 - DefenceP1) * DefenceRatioP1);
-                if (DamageToP1 <= 0) DamageToP1 = 0;
+                    if (DamageToP1 <= 0) DamageToP1 = 0;
                 DamageToP2 = Math.Ceiling((DamageP1 - DefenceP2) * DefenceRatioP2);
-                if (DamageToP2 <= 0) DamageToP2 = 0;
+                    if (DamageToP2 <= 0) DamageToP2 = 0;
 
                 player1.reduceHealthPoints((int)DamageToP1);
                 player2.reduceHealthPoints((int)DamageToP2);
@@ -255,7 +257,14 @@ namespace Game2209
                     "P2 has " + player2.HealthPoints + " health left.");
                 Console.WriteLine("P2 dealt " + DamageToP1 + " damage to P1. \n" +
                     "P1 has " + player1.HealthPoints + " health left.\n");
-            } while (player1.HealthPoints > 0 && player2.HealthPoints > 0);    
+            } while (player1.HealthPoints > 0 && player2.HealthPoints > 0);
+
+            if (player1.HealthPoints > 0 && player2.HealthPoints <= 0)
+                Console.WriteLine(player1.ToString() + Constants.Win);
+                    else if (player2.HealthPoints > 0 && player1.HealthPoints <= 0)
+                        Console.WriteLine(player2.ToString() + Constants.Win);
+                            else 
+                                Console.WriteLine(Constants.Draw);
         }
     }
 }

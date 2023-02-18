@@ -14,9 +14,9 @@ namespace Game2209
         public static string PlayerProfile1 = "Сustomize the player 1";   //Настройте игрока 1
         public static string PlayerProfile2 = "Сustomize the player 2";   //Настройте игрока 2
         public static string StartGame = "Start of the round";           //начать раунд
-        public static string Protection = "Choose protection";          // защита
+        public static string Protection = "Choose defence";          // защита
         public static string Weapon = "Select weapon";
-        public static string Attack = "Choose the location of the attack";
+        public static string Attack = "Choose the target attack ";
         public static string Defense = "Сhoose a place of protection";
         public static string Damage = "Damage done";
         public static string Health = "Health left";

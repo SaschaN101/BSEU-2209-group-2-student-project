@@ -1,8 +1,7 @@
-﻿using System;
-
-public class Person
+﻿public class Player
 {
     private string name;
+    public string Name { get { return name; } }
     private int healthPoints = 100;
 
     public int HealthPoints
@@ -13,7 +12,7 @@ public class Person
 
     private Characteristics characteristics = new Characteristics();
 
-    public Person(string name)
+    public Player(string name)
     {
         this.name = name;
     }
@@ -60,7 +59,7 @@ public class Person
                 characteristics.getWeapon().setLevel(level); break;
             default: break;
         }
-    } 
+    }
 
     public override string ToString()
     {

@@ -2,7 +2,7 @@
 
 public static class Validation
 {
-    private static string equipment = "htalw";
+    private static string equipment = "htalwq";
     private static string level = "123";
 
     public static bool ValidationEquipment(char enterSting)

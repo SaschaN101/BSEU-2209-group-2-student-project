@@ -24,5 +24,4 @@ public static class Validation
         }
         else { return false; }
     }
-
 }

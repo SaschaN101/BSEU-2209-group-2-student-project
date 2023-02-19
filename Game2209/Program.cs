@@ -23,13 +23,10 @@ namespace Game2209
             Console.WriteLine(player1.ToString() + " is created!");
             Console.WriteLine(player2.ToString() + " is created!");
 
-            Console.WriteLine(player1.ToString() + " please choose ur equipment");
+            Console.WriteLine(player1.ToString() + " please choose your equipment");
 
             ConsoleKeyInfo KeyEquip, KeyLvl;
-            Console.WriteLine(player1.ToString() + 
-                " now you need to choose equipment before fight. \n" +
-                "For choosing equipment press keys:\nh (head)\nt (torso)\na (arms)\nl (legs)\nw (weapon)" +
-                "\nPress q to exit");
+           
 
             bool selectLevel(string equipment, string str2)
             {
@@ -54,163 +51,75 @@ namespace Game2209
                 }
             }
 
-            do
-            {
-                KeyEquip = Console.ReadKey();
-                if (Validation.ValidationEquipment(KeyEquip.KeyChar))
-                {
-                    bool indicator = false;
 
-                    switch (KeyEquip.KeyChar)
+            ///player 1
+            void SetSettingPlayer(Person player)
+            {
+                Console.WriteLine(player.ToString() +
+                   " now you need to choose equipment before fight. \n" +
+                   "For choosing equipment press keys:\nh (head)\nt (torso)\na (arms)\nl (legs)\nw (weapon)" +
+                   "\nPress q to exit");
+
+                do
+                {
+                    KeyEquip = Console.ReadKey();
+                    if (Validation.ValidationEquipment(KeyEquip.KeyChar))
                     {
-                        case 'h': //Head
-                            {
-                                do
-                                {
-                                    indicator = selectLevel("HEAD", "h");
-                                } while (indicator);
-                            }
-                            break;
-                        case 't': //Torso
-                            {
-                                selectLevel("TORSO", "t");
-                            }
-                            break;
-                        case 'a': //Arms
-                            {
-                                selectLevel("ARMS", "a");
-                            }
-                            break;
-                        case 'l': //Legs
-                            {
-                                Console.WriteLine("\nYou have choose LEGS, now choose level of equipment\n"
-                                    + "Press 1 (defence = 5), 2 (defence = 10) or 3 (defence = 15)");
-                                KeyLvl = Console.ReadKey();
-                                switch (KeyLvl.KeyChar)
-                                {
-                                    case '1': player1.setDefenceLevelFor("l", 1); break;
-                                    case '2': player1.setDefenceLevelFor("l", 2); break;
-                                    case '3': player1.setDefenceLevelFor("l", 3); break;
-                                    default: break;
-                                }
-                                Console.WriteLine("\nNow " + player1.ToString() + " LEGS defence = "
-                                    + player1.getDefenceLevelFor("l"));
-                            }
-                            break;
-                        case 'w': //Weapon
-                            {
-                                Console.WriteLine("You have choose WEAPON, now choose level of equipment\n"
-                                    + "Press 1 (defence = 15), 2 (defence = 20) or 3 (defence = 25)");
-                                KeyLvl = Console.ReadKey();
-                                switch (KeyLvl.KeyChar)
-                                {
-                                    case '1': player1.setDefenceLevelFor("w", 1); break;
-                                    case '2': player1.setDefenceLevelFor("w", 2); break;
-                                    case '3': player1.setDefenceLevelFor("w", 3); break;
-                                    default: break;
-                                }
-                                Console.WriteLine("\nNow " + player1.ToString() + " WEAPON damage = "
-                                    + player1.getDamageLevel());
-                            }
-                            break;
-                        default: break;
-                    }
-                }
-                else { Console.WriteLine("\nAn invalid parameter was entered. Try again.");}
-            } while (KeyEquip.KeyChar != 'q');
+                        bool indicator = false;
 
-            Console.WriteLine("\n" + player2.ToString() +
-                " now you need to choose equipment before fight. \n" +
-                "For choosing equipment press keys:\nh (head)\nt (torso)\na (arms)\nl (legs)\nw (weapon)" +
-                "\nPress q to exit");
-            do
-            {
-                KeyEquip = Console.ReadKey();
-                switch (KeyEquip.KeyChar)
-                {
-                    case 'h': //Head
+                        switch (KeyEquip.KeyChar)
                         {
-                            Console.WriteLine("\nYou have choose HEAD, now choose level of equipment\n"
-                                + "Press 1 (defence = 10), 2 (defence = 15) or 3 (defence = 20)");
-                            KeyLvl = Console.ReadKey();
-                            switch (KeyLvl.KeyChar)
-                            {
-                                case '1': player2.setDefenceLevelFor("h", 1); break;
-                                case '2': player2.setDefenceLevelFor("h", 2); break;
-                                case '3': player2.setDefenceLevelFor("h", 3); break;
-                                default: break;
-                            }
-                            Console.WriteLine("\nNow " + player2.ToString() + " HEAD defence = "
-                                + player2.getDefenceLevelFor("h"));
+                            case 'h': //Head
+                                {
+                                    do
+                                    {
+                                        indicator = selectLevel("HEAD", "h");
+                                    } while (indicator);
+                                }
+                                break;
+                            case 't': //Torso
+                                {
+                                    do
+                                    {
+                                        indicator = selectLevel("TORSO", "t");
+                                    } while (indicator);
+                                }
+                                break;
+                            case 'a': //Arms
+                                {
+                                    do
+                                    {
+                                        indicator = selectLevel("ARMS", "a");
+                                    } while (indicator);
+                                }
+                                break;
+                            case 'l': //Legs
+                                {
+                                    do
+                                    {
+                                        indicator = selectLevel("LEGS", "l");
+                                    } while (indicator);
+                                }
+                                break;
+                            case 'w': //Weapon
+                                {
+                                    do
+                                    {
+                                        indicator = selectLevel("WEAPON", "w");
+                                    } while (indicator);
+                                }
+                                break;
+                            default: break;
                         }
-                        break;
-                    case 't': //Torso
-                        {
-                            Console.WriteLine("\nYou have choose TORSO, now choose level of equipment\n"
-                                + "Press 1 (defence = 10), 2 (defence = 15) or 3 (defence = 20)");
-                            KeyLvl = Console.ReadKey();
-                            switch (KeyLvl.KeyChar)
-                            {
-                                case '1': player2.setDefenceLevelFor("t", 1); break;
-                                case '2': player2.setDefenceLevelFor("t", 2); break;
-                                case '3': player2.setDefenceLevelFor("t", 3); break;
-                                default: break;
-                            }
-                            Console.WriteLine("\nNow " + player2.ToString() + " TORSO defence = "
-                                + player2.getDefenceLevelFor("t"));
-                        }
-                        break;
-                    case 'a': //Arms
-                        {
-                            Console.WriteLine("\nYou have choose ARMS, now choose level of equipment\n"
-                                + "Press 1 (defence = 5), 2 (defence = 10) or 3 (defence = 15)");
-                            KeyLvl = Console.ReadKey();
-                            switch (KeyLvl.KeyChar)
-                            {
-                                case '1': player2.setDefenceLevelFor("a", 1); break;
-                                case '2': player2.setDefenceLevelFor("a", 2); break;
-                                case '3': player2.setDefenceLevelFor("a", 3); break;
-                                default: break;
-                            }
-                            Console.WriteLine("\nNow " + player2.ToString() + " ARMS defence = "
-                                + player2.getDefenceLevelFor("a"));
-                        }
-                        break;
-                    case 'l': //Legs
-                        {
-                            Console.WriteLine("\nYou have choose LEGS, now choose level of equipment\n"
-                                + "Press 1 (defence = 5), 2 (defence = 10) or 3 (defence = 15)");
-                            KeyLvl = Console.ReadKey();
-                            switch (KeyLvl.KeyChar)
-                            {
-                                case '1': player2.setDefenceLevelFor("l", 1); break;
-                                case '2': player2.setDefenceLevelFor("l", 2); break;
-                                case '3': player2.setDefenceLevelFor("l", 3); break;
-                                default: break;
-                            }
-                            Console.WriteLine("\nNow " + player2.ToString() + " LEGS defence = "
-                                + player2.getDefenceLevelFor("l"));
-                        }
-                        break;
-                    case 'w': //Weapon
-                        {
-                            Console.WriteLine("You have choose WEAPON, now choose level of equipment\n"
-                                + "Press 1 (defence = 15), 2 (defence = 20) or 3 (defence = 25)");
-                            KeyLvl = Console.ReadKey();
-                            switch (KeyLvl.KeyChar)
-                            {
-                                case '1': player2.setDefenceLevelFor("w", 1); break;
-                                case '2': player2.setDefenceLevelFor("w", 2); break;
-                                case '3': player2.setDefenceLevelFor("w", 3); break;
-                                default: break;
-                            }
-                            Console.WriteLine("\nNow " + player2.ToString() + " WEAPON damage = "
-                                + player2.getDamageLevel());
-                        }
-                        break;
-                    default: break;
-                }
-            } while (KeyEquip.KeyChar != 'q');
+                    }
+                    else { Console.WriteLine("\nAn invalid parameter was entered. Try again."); }
+                } while (KeyEquip.KeyChar != 'q');
+                Console.WriteLine("\nDefault settings have been set for unspecified values");
+            }
+
+            SetSettingPlayer(player1);
+            SetSettingPlayer(player2);
+
 
             Constants.Countdown(); // обратный отсчёт
 

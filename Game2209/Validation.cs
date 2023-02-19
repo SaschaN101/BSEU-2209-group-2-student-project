@@ -1,6 +1,4 @@
-﻿using System;
-
-public static class Validation
+﻿public static class Validation
 {
     private static string equipment = "htalwq";
     private static string level = "123";
@@ -20,11 +18,11 @@ public static class Validation
     {
         return ValidationStr(enterSting, equipment);
     }
-    
+
     public static bool ValidationLevel(char enterSting)
     {
         return ValidationStr(enterSting, level);
-        
+
     }
 
     public static bool ValidationfightRaund(string enterSting)

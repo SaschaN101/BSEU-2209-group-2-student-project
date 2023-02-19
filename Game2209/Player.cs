@@ -22,41 +22,41 @@
         healthPoints = healthPoints - points;
     }
 
-    public int getDamageLevel()
+    public int GetDamageLevel()
     {
-        return characteristics.getWeapon().getDamage();
+        return characteristics.GetWeapon().GetDamage();
     }
 
-    public int getDefenceLevelFor(string defenceElement)
+    public int GetDefenceLevelFor(string defenceElement)
     {
         switch (defenceElement)
         {
             case "h": //Head
-                return characteristics.getHead().getDefence();
+                return characteristics.GetHead().GetDefence();
             case "t": //Torso
-                return characteristics.getTorso().getDefence();
+                return characteristics.GetTorso().GetDefence();
             case "a": //Arms
-                return characteristics.getArms().getDefence();
+                return characteristics.GetArms().GetDefence();
             case "l": //Legs
-                return characteristics.getLegs().getDefence();
+                return characteristics.GetLegs().GetDefence();
             default:
                 return 0;
         }
     }
-    public void setDefenceLevelFor(string defenceElement, int level)
+    public void SetDefenceLevelFor(string defenceElement, int level)
     {
         switch (defenceElement)
         {
             case "h": //Head
-                characteristics.getHead().setLevel(level); break;
+                characteristics.GetHead().SetLevel(level); break;
             case "t": //Torso
-                characteristics.getTorso().setLevel(level); break;
+                characteristics.GetTorso().SetLevel(level); break;
             case "a": //Arms
-                characteristics.getArms().setLevel(level); break;
+                characteristics.GetArms().SetLevel(level); break;
             case "l": //Legs
-                characteristics.getLegs().setLevel(level); break;
+                characteristics.GetLegs().SetLevel(level); break;
             case "w": //Weapon
-                characteristics.getWeapon().setLevel(level); break;
+                characteristics.GetWeapon().SetLevel(level); break;
             default: break;
         }
     }

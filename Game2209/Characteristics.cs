@@ -15,46 +15,46 @@
         weapon = new Weapon();
     }
 
-    /*public void defaultCharacteristics(){
-        head.setLevel(1);
-        torso.setLevel(1);
-        arms.setLevel(1);
-        legs.setLevel(1);
-        weapon.setLevel(1);
+    /*public void DefaultCharacteristics(){
+        head.SetLevel(1);
+        torso.SetLevel(1);
+        arms.SetLevel(1);
+        legs.SetLevel(1);
+        weapon.SetLevel(1);
     }*/
 
-    public Head getHead()
+    public Head GetHead()
     {
         return head;
     }
 
-    public Torso getTorso()
+    public Torso GetTorso()
     {
         return torso;
     }
 
-    public Arms getArms()
+    public Arms GetArms()
     {
         return arms;
     }
 
-    public Legs getLegs()
+    public Legs GetLegs()
     {
         return legs;
     }
 
-    public Weapon getWeapon()
+    public Weapon GetWeapon()
     {
         return weapon;
     }
 
     public override string ToString()
     {
-        return base.ToString() + ": \nhead: " + head.getDefence()
-            + "\nTorso defence: " + torso.getDefence()
-            + "\nArms defence: " + arms.getDefence()
-            + "\nLegs defence: " + legs.getDefence()
-            + "\nWeapon damage: " + weapon.getDamage();
+        return base.ToString() + ": \nhead: " + head.GetDefence()
+            + "\nTorso defence: " + torso.GetDefence()
+            + "\nArms defence: " + arms.GetDefence()
+            + "\nLegs defence: " + legs.GetDefence()
+            + "\nWeapon damage: " + weapon.GetDamage();
     }
 
     public class Head
@@ -62,21 +62,21 @@
 
         private int level;
         private int defence;
-        public int getLevel()
+        public int GetLevel()
         {
             return level;
         }
-        public void setLevel(int level)
+        public void SetLevel(int level)
         {
             this.level = level;
-            setDefence();
+            SetDefence();
         }
-        public int getDefence()
+        public int GetDefence()
         {
             return defence;
         }
 
-        public void setDefence()
+        public void SetDefence()
         {
             if (level == 1)
                 defence = 10;
@@ -88,7 +88,7 @@
 
         public Head()
         {
-            setLevel(1);
+            SetLevel(1);
         }
     }
 
@@ -97,20 +97,20 @@
 
         private int level;
         private int defence;
-        public int getLevel()
+        public int GetLevel()
         {
             return level;
         }
-        public void setLevel(int level)
+        public void SetLevel(int level)
         {
             this.level = level;
-            setDefence();
+            SetDefence();
         }
-        public int getDefence()
+        public int GetDefence()
         {
             return defence;
         }
-        public void setDefence()
+        public void SetDefence()
         {
             if (level == 1)
                 defence = 10;
@@ -122,7 +122,7 @@
 
         public Torso()
         {
-            setLevel(1);
+            SetLevel(1);
         }
     }
 
@@ -131,20 +131,20 @@
 
         private int level;
         private int defence;
-        public int getLevel()
+        public int GetLevel()
         {
             return level;
         }
-        public void setLevel(int level)
+        public void SetLevel(int level)
         {
             this.level = level;
-            setDefence();
+            SetDefence();
         }
-        public int getDefence()
+        public int GetDefence()
         {
             return defence;
         }
-        public void setDefence()
+        public void SetDefence()
         {
             if (level == 1)
                 defence = 5;
@@ -155,7 +155,7 @@
         }
         public Arms()
         {
-            setLevel(1);
+            SetLevel(1);
         }
     }
 
@@ -164,20 +164,20 @@
 
         private int level;
         private int defence;
-        public int getLevel()
+        public int GetLevel()
         {
             return level;
         }
-        public void setLevel(int level)
+        public void SetLevel(int level)
         {
             this.level = level;
-            setDefence();
+            SetDefence();
         }
-        public int getDefence()
+        public int GetDefence()
         {
             return defence;
         }
-        public void setDefence()
+        public void SetDefence()
         {
             if (level == 1)
                 defence = 5;
@@ -188,7 +188,7 @@
         }
         public Legs()
         {
-            setLevel(1);
+            SetLevel(1);
         }
     }
 
@@ -197,16 +197,16 @@
 
         private int level;
         private int damage;
-        public int getLevel()
+        public int GetLevel()
         {
             return level;
         }
-        public void setLevel(int level)
+        public void SetLevel(int level)
         {
             this.level = level;
             setDamage();
         }
-        public int getDamage()
+        public int GetDamage()
         {
             return damage;
         }
@@ -221,7 +221,7 @@
         }
         public Weapon()
         {
-            setLevel(1);
+            SetLevel(1);
         }
     }
 }

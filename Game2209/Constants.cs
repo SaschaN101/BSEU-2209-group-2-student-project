@@ -25,21 +25,5 @@ namespace Game2209
         public static string Draw = "BOTH OF YOU NOT WORTH OUR TIME.\n BRING THERE NEXT CHALLENGERS!!!";
         public static string Rematch = "Rematch";
         public static string Exit = "Exit from the game";
-
-        public static void Countdown()
-        {
-            Console.WriteLine("\nPREPARE FOR BATTLE"); Thread.Sleep(1500); //задержка 1.5 сек
-            Console.WriteLine(3); Thread.Sleep(1000);
-            Console.WriteLine(2); Thread.Sleep(1000);
-            Console.WriteLine(1); Thread.Sleep(1000);
-            Console.WriteLine("..."); Thread.Sleep(1500);
-            Console.WriteLine("START"); Thread.Sleep(1000);
-        }
-        public static string player(string name)
-        {
-            return "Player " + name + " is ready";
-        }
-
     }
-
 }

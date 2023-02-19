@@ -1,6 +1,4 @@
-﻿using System;
-
-public class Player
+﻿public class Player
 {
     private string name;
     public string Name { get { return name; } }
@@ -61,7 +59,7 @@ public class Player
                 characteristics.getWeapon().setLevel(level); break;
             default: break;
         }
-    } 
+    }
 
     public override string ToString()
     {

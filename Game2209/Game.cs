@@ -5,18 +5,11 @@ namespace Game2209
 {
     public class Game
     {
-
-        public void StartGame()
-        {
-
-        }
-        public Player CreatePlayer(int player)
-        {
-            Console.WriteLine("Player " + player + ", enter name for the your fighter!");
-            string playerName = Console.ReadLine();
-            Console.WriteLine("AWESOME! Player " + playerName + " is created!\n\n");
-            return new Player(playerName);
-        }
+        private const string NameSelectionText = "Player {0}, enter name for your fighter!";
+        private const string NameSelectedText = "AWESOME! Player {0} is created!\n\n";
+        private const string InvalidParameterText = "\nAn invalid parameter was entered. Try again.";
+        private const string Win = " IS REAL DRAGON!!!";
+        private const string Draw = "BOTH OF YOU NOT WORTH OUR TIME.\n BRING THERE NEXT CHALLENGERS!!!";
 
         public void ShowHelloBanner()
         {
@@ -30,13 +23,21 @@ namespace Game2209
             Console.WriteLine("================================================================================================================");
         }
 
+        public Player CreatePlayer(int player)
+        {
+            Console.WriteLine(string.Format(NameSelectionText, player));
+            string playerName = Console.ReadLine();
+            Console.WriteLine(NameSelectedText, playerName);
+            return new Player(playerName);
+        }
+
         public void ChooseEquipment(Player player)
         {
             Console.WriteLine(player.Name + ", please, choose your equipment before fight");
 
             ConsoleKeyInfo KeyEquip, KeyLvl;
             Console.WriteLine("To choose equipment press keys:\nh (head)\nt (torso)\na (arms)\nl (legs)\nw (weapon)" +
-                "\nPress q to exit");
+                "\nAfter equipment is selected, ress q to exit");
 
             bool selectLevel(string equipment, string str2)
             {
@@ -59,7 +60,7 @@ namespace Game2209
                 }
                 else
                 {
-                    Console.WriteLine("\nAn invalid parameter was entered. Try again.");
+                    Console.WriteLine(InvalidParameterText);
                     return true;
                 }
             }
@@ -126,7 +127,7 @@ namespace Game2209
                         default: break;
                     }
                 }
-                else { Console.WriteLine("\nAn invalid parameter was entered. Try again."); }
+                else { Console.WriteLine(InvalidParameterText); }
             } while (KeyEquip.KeyChar != 'q');
         }
 
@@ -179,12 +180,9 @@ namespace Game2209
 
             if (playerOne.HealthPoints > 0 && playerTwo.HealthPoints <= 0)
                 return playerOne;
-            //Console.WriteLine(playerOne.Name + Constants.Win);
             else if (playerTwo.HealthPoints > 0 && playerOne.HealthPoints <= 0)
                 return playerTwo;
-            //Console.WriteLine(playerTwo.Name + Constants.Win);
             else
-                //Console.WriteLine(Constants.Draw);
                 return null;
         }
 
@@ -192,9 +190,9 @@ namespace Game2209
         {
             if (winner != null)
             {
-                Console.WriteLine(winner.Name + Constants.Win);
+                Console.WriteLine(winner.Name + Win);
             }
-            else Console.WriteLine(Constants.Draw);
+            else Console.WriteLine(Draw);
         }
 
         public void Countdown()
@@ -205,6 +203,16 @@ namespace Game2209
             Console.WriteLine(1); Thread.Sleep(1000);
             Console.WriteLine("..."); Thread.Sleep(1500);
             Console.WriteLine("START"); Thread.Sleep(1000);
+        }
+
+        public void ShowWinnerBanner()
+        {
+            Console.WriteLine("=============================  ___                  __        _____ _   _ _   _ _____ ____  _  ===========================");
+            Console.WriteLine("============================= |_ _|  ___  ___  ___  \\ \\      / /_ _| \\ | | \\ | | ____|  _ \\| | ===========================");
+            Console.WriteLine("=============================  | |  / __|/ _ \\/ _ \\  \\ \\ /\\ / / | ||  \\| |  \\| |  _| | |_) | | ===========================");
+            Console.WriteLine("=============================  | |  \\__ \\  __/  __/   \\ V  V /  | || |\\  | |\\  | |___|  _ <|_| ===========================");
+            Console.WriteLine("============================= |___| |___/\\___|\\___|    \\_/\\_/  |___|_| \\_|_| \\_|_____|_| \\_(_) ===========================");
+        
         }
     }
 }

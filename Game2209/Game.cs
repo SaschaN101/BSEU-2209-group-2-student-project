@@ -25,16 +25,9 @@ namespace Game2209
             return new Player(playerName);
         }
 
-        public void ChooseEquipment(Player player)
-        {
-            Console.WriteLine("\n" + player.Name + ", please, choose your equipment before fight");
-
-            ConsoleKeyInfo KeyEquip, KeyLvl;
-            Console.WriteLine("To choose equipment press keys:\nh (head)\nt (torso)\na (arms)\nl (legs)\nw (weapon)" +
-                "\nAfter equipment is selected, ress q to exit");
-
-            bool selectLevel(string equipment, string str2)
+        bool selectLevel(string equipment, string str2, Player player)
             {
+                ConsoleKeyInfo  KeyLvl;
                 Console.WriteLine("\nYou have chosen " + equipment + ", now choose level of equipment\n"
                                     + "Press 1 (defence = 10), 2 (defence = 15) or 3 (defence = 20)");
                 KeyLvl = Console.ReadKey();
@@ -59,6 +52,14 @@ namespace Game2209
                 }
             }
 
+        public void ChooseEquipment(Player player)
+        {
+            Console.WriteLine("\n" + player.Name + ", please, choose your equipment before fight");
+
+            ConsoleKeyInfo KeyEquip;
+            Console.WriteLine("To choose equipment press keys:\nh (head)\nt (torso)\na (arms)\nl (legs)\nw (weapon)" +
+                "\nAfter equipment is selected, ress q to exit");            
+
             do
             {
                 KeyEquip = Console.ReadKey();
@@ -72,50 +73,40 @@ namespace Game2209
                             {
                                 do
                                 {
-                                    indicator = selectLevel("HEAD", "h");
+                                    indicator = selectLevel("HEAD", "h" , player);
                                 } while (indicator);
                             }
                             break;
                         case 't': //Torso
                             {
-                                selectLevel("TORSO", "t");
+                                do
+                                {
+                                    indicator = selectLevel("TORSO", "t", player);
+                                } while (indicator);
                             }
                             break;
                         case 'a': //Arms
                             {
-                                selectLevel("ARMS", "a");
+                                do
+                                {
+                                    indicator = selectLevel("ARMS", "a", player);
+                                } while (indicator);
                             }
                             break;
                         case 'l': //Legs
                             {
-                                Console.WriteLine("\nYou have choosen LEGS, now choose level of equipment\n"
-                                    + "Press 1 (defence = 5), 2 (defence = 10) or 3 (defence = 15)");
-                                KeyLvl = Console.ReadKey();
-                                switch (KeyLvl.KeyChar)
+                                do
                                 {
-                                    case '1': player.setDefenceLevelFor("l", 1); break;
-                                    case '2': player.setDefenceLevelFor("l", 2); break;
-                                    case '3': player.setDefenceLevelFor("l", 3); break;
-                                    default: break;
-                                }
-                                Console.WriteLine("\nNow " + player.Name + "'s LEGS defence = "
-                                    + player.getDefenceLevelFor("l"));
+                                    indicator = selectLevel("LEGS", "l", player);
+                                } while (indicator);
                             }
                             break;
                         case 'w': //Weapon
                             {
-                                Console.WriteLine("You have choosen WEAPON, now choose level of equipment\n"
-                                    + "Press 1 (defence = 15), 2 (defence = 20) or 3 (defence = 25)");
-                                KeyLvl = Console.ReadKey();
-                                switch (KeyLvl.KeyChar)
+                                do
                                 {
-                                    case '1': player.setDefenceLevelFor("w", 1); break;
-                                    case '2': player.setDefenceLevelFor("w", 2); break;
-                                    case '3': player.setDefenceLevelFor("w", 3); break;
-                                    default: break;
-                                }
-                                Console.WriteLine("\nNow " + player.Name + "'s WEAPON damage = "
-                                    + player.getDamageLevel());
+                                    indicator = selectLevel("WEAPON", "w", player);
+                                } while (indicator);
                             }
                             break;
                         default: break;
@@ -123,6 +114,22 @@ namespace Game2209
                 }
                 else { Console.WriteLine(Constants.InvalidParameterText); }
             } while (KeyEquip.KeyChar != 'q');
+            Console.WriteLine("\nDefault settings have been set for unspecified values\n");
+        }
+
+        string attackRound()
+        {
+            bool isValid;
+            string TargetP;
+            do
+            {
+                TargetP = Console.ReadLine();
+                TargetP = TargetP.ToLower();
+                isValid = !Validation.ValidationfightRaund(TargetP);
+                if (isValid) Console.WriteLine("An invalid parameter was entered. Try again.");
+
+            } while (isValid);
+            return TargetP;
         }
 
         public Player Fight(Player playerOne, Player playerTwo)
@@ -134,13 +141,13 @@ namespace Game2209
                 double DamageToP1, DamageToP2, DefenceRatioP1 = 1, DefenceRatioP2 = 1;
 
                 Console.WriteLine(playerOne.Name + " choose your attack target and defence target");
-                AtkTargetP1 = Console.ReadLine(); AtkTargetP1 = AtkTargetP1.ToLower();
-                DefTargetP1 = Console.ReadLine(); DefTargetP1 = DefTargetP1.ToLower();
+                AtkTargetP1 = attackRound();
+                DefTargetP1 = attackRound();
                 Console.WriteLine();
 
                 Console.WriteLine(playerTwo.Name + " choose your attack target and defence target");
-                AtkTargetP2 = Console.ReadLine(); AtkTargetP2 = AtkTargetP2.ToLower();
-                DefTargetP2 = Console.ReadLine(); DefTargetP2 = DefTargetP2.ToLower();
+                AtkTargetP2 = attackRound();
+                DefTargetP2 = attackRound();
                 Console.WriteLine();
 
                 int DamageP1 = playerOne.getDamageLevel(),

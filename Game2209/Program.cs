@@ -22,6 +22,7 @@ namespace Game2209
             
             Console.WriteLine(player1.ToString() + " is created!");
             Console.WriteLine(player2.ToString() + " is created!");
+            Console.WriteLine();
 
             Console.WriteLine(player1.ToString() + " please choose your equipment");
 
@@ -114,14 +115,28 @@ namespace Game2209
                     }
                     else { Console.WriteLine("\nAn invalid parameter was entered. Try again."); }
                 } while (KeyEquip.KeyChar != 'q');
-                Console.WriteLine("\nDefault settings have been set for unspecified values");
+                Console.WriteLine("\nDefault settings have been set for unspecified values\n");
             }
 
-            SetSettingPlayer(player1);
+            SetSettingPlayer(player1);            
             SetSettingPlayer(player2);
-
-
+           
             Constants.Countdown(); // обратный отсчёт
+
+            string attackRound()
+            {
+                bool isValid = false;
+                string TargetP;
+                do
+                {
+                    TargetP = Console.ReadLine();
+                    TargetP = TargetP.ToLower();
+                    isValid = !Validation.ValidationfightRaund(TargetP);
+                    if (isValid) Console.WriteLine("An invalid parameter was entered. Try again.");
+
+                } while (isValid);
+                return TargetP;
+            }
 
             do
             {
@@ -130,13 +145,16 @@ namespace Game2209
                 double DamageToP1, DamageToP2, DefenceRatioP1 = 1, DefenceRatioP2 = 1;
                     
                 Console.WriteLine(player1.ToString() + " choose your attack target and defence target");
-                    AtkTargetP1 = Console.ReadLine(); AtkTargetP1 = AtkTargetP1.ToLower();
-                    DefTargetP1 = Console.ReadLine(); DefTargetP1 = DefTargetP1.ToLower();
+
+                AtkTargetP1 = attackRound();
+                DefTargetP1 = attackRound();
+
                 Console.WriteLine();
-                
                 Console.WriteLine(player2.ToString() + " choose your attack target and defence target");
-                    AtkTargetP2 = Console.ReadLine(); AtkTargetP2 = AtkTargetP2.ToLower();
-                    DefTargetP2 = Console.ReadLine(); DefTargetP2 = DefTargetP2.ToLower();
+
+                AtkTargetP2 = attackRound();
+                DefTargetP2 = attackRound();
+
                 Console.WriteLine();
 
                 int DamageP1 = player1.getDamageLevel(), 

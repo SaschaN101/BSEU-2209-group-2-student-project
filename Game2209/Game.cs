@@ -5,12 +5,6 @@ namespace Game2209
 {
     public class Game
     {
-        private const string NameSelectionText = "Player {0}, enter name for your fighter!";
-        private const string NameSelectedText = "AWESOME! Player {0} is created!\n\n";
-        private const string InvalidParameterText = "\nAn invalid parameter was entered. Try again.";
-        private const string Win = " IS REAL DRAGON!!!";
-        private const string Draw = "BOTH OF YOU NOT WORTH OUR TIME.\n BRING THERE NEXT CHALLENGERS!!!";
-
         public void ShowHelloBanner()
         {
             Console.WriteLine("=============================   ____                      ____  ____   ___   ___   =============================");
@@ -25,15 +19,15 @@ namespace Game2209
 
         public Player CreatePlayer(int player)
         {
-            Console.WriteLine(string.Format(NameSelectionText, player));
+            Console.WriteLine(string.Format(Constants.NameSelectionText, player));
             string playerName = Console.ReadLine();
-            Console.WriteLine(NameSelectedText, playerName);
+            Console.WriteLine(Constants.NameSelectedText, playerName);
             return new Player(playerName);
         }
 
         public void ChooseEquipment(Player player)
         {
-            Console.WriteLine(player.Name + ", please, choose your equipment before fight");
+            Console.WriteLine("\n" + player.Name + ", please, choose your equipment before fight");
 
             ConsoleKeyInfo KeyEquip, KeyLvl;
             Console.WriteLine("To choose equipment press keys:\nh (head)\nt (torso)\na (arms)\nl (legs)\nw (weapon)" +
@@ -60,7 +54,7 @@ namespace Game2209
                 }
                 else
                 {
-                    Console.WriteLine(InvalidParameterText);
+                    Console.WriteLine(Constants.InvalidParameterText);
                     return true;
                 }
             }
@@ -127,7 +121,7 @@ namespace Game2209
                         default: break;
                     }
                 }
-                else { Console.WriteLine(InvalidParameterText); }
+                else { Console.WriteLine(Constants.InvalidParameterText); }
             } while (KeyEquip.KeyChar != 'q');
         }
 
@@ -190,9 +184,10 @@ namespace Game2209
         {
             if (winner != null)
             {
-                Console.WriteLine(winner.Name + Win);
+                ShowWinnerBanner();
+                Console.WriteLine(winner.Name + Constants.Win);
             }
-            else Console.WriteLine(Draw);
+            else Console.WriteLine(Constants.Draw);
         }
 
         public void Countdown()
@@ -205,7 +200,7 @@ namespace Game2209
             Console.WriteLine("START"); Thread.Sleep(1000);
         }
 
-        public void ShowWinnerBanner()
+        private void ShowWinnerBanner()
         {
             Console.WriteLine("=============================  ___                  __        _____ _   _ _   _ _____ ____  _  ===========================");
             Console.WriteLine("============================= |_ _|  ___  ___  ___  \\ \\      / /_ _| \\ | | \\ | | ____|  _ \\| | ===========================");
@@ -213,6 +208,15 @@ namespace Game2209
             Console.WriteLine("=============================  | |  \\__ \\  __/  __/   \\ V  V /  | || |\\  | |\\  | |___|  _ <|_| ===========================");
             Console.WriteLine("============================= |___| |___/\\___|\\___|    \\_/\\_/  |___|_| \\_|_| \\_|_____|_| \\_(_) ===========================");
         
+        }
+
+        private class Constants
+        {
+            public const string NameSelectionText = "Player {0}, enter name for your fighter!";
+            public const string NameSelectedText = "AWESOME! Player {0} is created!\n\n";
+            public const string InvalidParameterText = "\nAn invalid parameter was entered. Try again.";
+            public const string Win = " IS REAL DRAGON!!!";
+            public const string Draw = "BOTH OF YOU NOT WORTH OUR TIME.\n BRING THERE NEXT CHALLENGERS!!!";
         }
     }
 }

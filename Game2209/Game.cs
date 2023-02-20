@@ -208,7 +208,8 @@ namespace Game2209
             Console.WriteLine(3); Thread.Sleep(1000);
             Console.WriteLine(2); Thread.Sleep(1000);
             Console.WriteLine(1); Thread.Sleep(1000);
-            Console.WriteLine("..."); Thread.Sleep(1500);
+            Console.Write("."); Thread.Sleep(500); Console.Write("."); Thread.Sleep(500); 
+            Console.WriteLine("."); Thread.Sleep(1000);
             Console.WriteLine(Constants.StartText); Thread.Sleep(1000);
         }
 
@@ -228,7 +229,7 @@ namespace Game2209
             public const string NameSelectedText = "AWESOME! Player {0} is created!\n";
             public const string InvalidParameterText = "\nAn invalid parameter was entered. Try again.";
             public const string Win = " IS REAL DRAGON!!!";
-            public const string Draw = "BOTH OF YOU NOT WORTH OUR TIME.\n BRING THERE NEXT CHALLENGERS!!!";
+            public const string Draw = "BOTH OF YOU NOT WORTH OUR TIME.\nBRING HERE NEXT CHALLENGERS!!!";
             public const string PrepareText = "\nPREPARE FOR BATTLE";
             public const string StartText = "START\n";
         }
